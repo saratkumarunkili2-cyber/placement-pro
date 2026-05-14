@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import Home from "../pages/home";
-import Login from "../pages/login";
+import Login from "../pages/Login";
 import Register from "../pages/Register";
 import StudentDashboard from "../pages/StudentDashboard";
 
@@ -33,7 +33,7 @@ function AppRoutes() {
         />
 
         <Route
-          path="/student-dashboard"
+          path="/studentdashboard"
           element={<StudentDashboard />}
         />
 

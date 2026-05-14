@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect,useState } from "react";
 
 import Sidebar from "../components/dashboard/Sidebar";
 import TopicsSection from "../components/dashboard/TopicsSection";
@@ -10,15 +10,76 @@ function StudentDashboard() {
 
   const [activeSection, setActiveSection] =
     useState("profile");
+
     const [completedTopics, setCompletedTopics] =
   useState([]);
+  useEffect(() => {
 
-  const topics = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React JS"
-  ];
+  const savedTopics =
+
+    localStorage.getItem(
+      "completedTopics"
+    );
+
+  if (savedTopics) {
+
+    setCompletedTopics(
+      JSON.parse(savedTopics)
+    );
+
+  }
+
+}, []);
+
+
+useEffect(() => {
+
+  localStorage.setItem(
+
+    "completedTopics",
+
+    JSON.stringify(
+      completedTopics
+    )
+
+  );
+
+}, [completedTopics]);
+   
+  const courses = [
+
+  {
+    courseName: "React JS",
+
+    modules: [
+      "Introduction",
+      "Components",
+      "Props",
+      "State"
+    ]
+  },
+
+  {
+    courseName: "Java",
+
+    modules: [
+      "OOP",
+      "Collections",
+      "Streams"
+    ]
+  },
+
+  {
+    courseName: "DSA",
+
+    modules: [
+      "Arrays",
+      "Linked List",
+      "Trees"
+    ]
+  }
+
+];
   const profile = {
     name: "Suresh",
     branch: "CSE"
@@ -35,7 +96,8 @@ const certificates = [];
 
     <div
       style={{
-        display: "flex"
+        display: "flex",
+        
       }}
     >
 
@@ -56,10 +118,13 @@ const certificates = [];
 
 
         {activeSection === "topics" && (
-  <TopicsSection topics={  topics}
-    completedTopics={completedTopics}
+  <TopicsSection courses={ courses}
+  
+  completedTopics={completedTopics}
+
   setCompletedTopics={setCompletedTopics}
-   />
+
+  />
 )}
 
         {activeSection === "companies" && (
