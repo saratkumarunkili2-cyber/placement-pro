@@ -1,22 +1,39 @@
-function Sidebar({ setActiveSection }) {
+function Sidebar({
+
+  setActiveSection
+
+}) {
 
   return (
 
     <div
       style={{
         width: "250px",
-        padding: "20px",
-        borderRight: "1px solid gray"
+        height: "100vh",
+        backgroundColor: "#111827",
+        color: "white",
+        padding: "20px"
       }}
     >
 
-      <h2>Student Dashboard</h2>
+      <h2>
+        Dashboard
+      </h2>
 
-      <ul>
+      <ul
+        style={{
+          listStyle: "none",
+          padding: 0
+        }}
+      >
 
         <li>
           <button
-            onClick={() => setActiveSection("profile")}
+            onClick={() =>
+              setActiveSection(
+                "profile"
+              )
+            }
           >
             Profile
           </button>
@@ -24,7 +41,11 @@ function Sidebar({ setActiveSection }) {
 
         <li>
           <button
-            onClick={() => setActiveSection("topics")}
+            onClick={() =>
+              setActiveSection(
+                "topics"
+              )
+            }
           >
             Topics
           </button>
@@ -32,7 +53,11 @@ function Sidebar({ setActiveSection }) {
 
         <li>
           <button
-            onClick={() => setActiveSection("companies")}
+            onClick={() =>
+              setActiveSection(
+                "companies"
+              )
+            }
           >
             Companies
           </button>
@@ -40,9 +65,37 @@ function Sidebar({ setActiveSection }) {
 
         <li>
           <button
-            onClick={() => setActiveSection("certificates")}
+            onClick={() =>
+              setActiveSection(
+                "certificates"
+              )
+            }
           >
             Certificates
+          </button>
+        </li>
+
+        <li>
+          <button
+            onClick={() =>
+              setActiveSection(
+                "news"
+              )
+            }
+          >
+            News
+          </button>
+        </li>
+
+        <li>
+          <button
+            onClick={() =>
+              setActiveSection(
+                "session"
+              )
+            }
+          >
+            Session
           </button>
         </li>
 
@@ -51,6 +104,7 @@ function Sidebar({ setActiveSection }) {
     </div>
 
   );
+
 }
 
 export default Sidebar;

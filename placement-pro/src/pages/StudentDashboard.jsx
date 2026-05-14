@@ -5,15 +5,20 @@ import TopicsSection from "../components/dashboard/TopicsSection";
 import ProfileSection from "../components/dashboard/ProfileSection";
 import CompaniesSection from "../components/dashboard/CompaniesSection";
 import CertificatesSection from "../components/dashboard/CertificatesSection";
+import SessionSection from "../components/dashboard/SessionSection";
+import NewsSection from "../components/dashboard/NewsSection";
 
-function StudentDashboard() {
-
+function StudentDashboard() 
+{
   const [activeSection, setActiveSection] =
     useState("profile");
+    const [
 
-    const [completedTopics, setCompletedTopics] =
-  useState([]);
-  useEffect(() => {
+  completedTopics,
+
+  setCompletedTopics
+
+] = useState(() => {
 
   const savedTopics =
 
@@ -21,18 +26,14 @@ function StudentDashboard() {
       "completedTopics"
     );
 
-  if (savedTopics) {
+  return savedTopics
 
-    setCompletedTopics(
-      JSON.parse(savedTopics)
-    );
+    ? JSON.parse(savedTopics)
 
-  }
+    : [];
 
-}, []);
-
-
-useEffect(() => {
+});
+  useEffect(() => {
 
   localStorage.setItem(
 
@@ -45,6 +46,8 @@ useEffect(() => {
   );
 
 }, [completedTopics]);
+
+
    
   const courses = [
 
@@ -91,6 +94,8 @@ useEffect(() => {
 ];
 
 const certificates = [];
+const news=[];
+const session=[];
 
   return (
 
@@ -137,6 +142,13 @@ const certificates = [];
 
           <CertificatesSection certificates={certificates}/>
         )}
+        {activeSection=="session"&&(
+          <SessionSection session={session}/>
+      )}
+
+      {activeSection=="news"&&(<NewsSection news={news}/>
+      )}
+      
 
       </div>
 
