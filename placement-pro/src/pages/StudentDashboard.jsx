@@ -94,8 +94,39 @@ function StudentDashboard()
 ];
 
 const certificates = [];
-const news=[];
-const session=[];
+const newsData = [
+
+  {
+    title: "TCS Hiring Drive",
+    description: "TCS hiring for 2026 batch students.",
+    date: "12 May 2026"
+  },
+
+  {
+    title: "Infosys Registration",
+    description: "Last date for Infosys registration extended.",
+    date: "13 May 2026"
+  }
+
+];
+
+const sessionsData = [
+
+  {
+    title: "Resume Building",
+    date: "15 May 2026",
+    time: "10:00 AM",
+    speaker: "Placement Officer"
+  },
+
+  {
+    title: "Mock Interview",
+    date: "18 May 2026",
+    time: "2:00 PM",
+    speaker: "HR Team"
+  }
+
+];
 
   return (
 
@@ -140,13 +171,13 @@ const session=[];
 
         {activeSection === "certificates" && (
 
-          <CertificatesSection certificates={certificates}/>
+          <CertificatesSection />
         )}
-        {activeSection=="session"&&(
-          <SessionSection session={session}/>
+        {activeSection==="session"&&(
+          <SessionSection sessions={sessionsData}/>
       )}
 
-      {activeSection=="news"&&(<NewsSection news={news}/>
+      {activeSection==="news"&&(<NewsSection news={newsData}/>
       )}
       
 
